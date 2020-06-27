@@ -11,7 +11,7 @@ Then start a thread pool and specify the number of threads (2 times the number o
 
 (define tp (make-thread-pool 4))
 
-Now you can start using the "parallel-map" function. It's syntax is the same as that of usual "map", except that the first argument should be a thread pool.
+Now you can start using the "parallel-map" function. It's syntax is the same as that of usual "map", except that the first argument should be a thread pool:
 
 (define (factorial x)
   (if (= x 0)
@@ -20,7 +20,15 @@ Now you can start using the "parallel-map" function. It's syntax is the same as 
 
 (parallel-map tp factorial '(2 3 4 5 6 7 8 9 10)) 
 
-Let's do something like this:
+As parallel-map returns, you can use the thred pool again. To destroy the thread pool, type: 
 
-(parallel-map tp factorial '(500000 500001 500002 500003 500004)) 
+(kill-thread-pool tp)
+
+If you want to stop a very long execution of map-parallel, type ctrl-c in chez scheme to stop execution of the current command, then type:
+
+(stop-thread-pool tp)
+
+After that the thread pool is ready for operations again.
+
+
 
