@@ -1,5 +1,5 @@
 # chez-parallel-map
-A library for parallel computation in Chez Scheme
+A quickly hacked library for parallel computation in Chez Scheme.
 
 This library provides a set of tools for parallel computaions in Chez Scheme. To get started, copy parallel-map.ss into your project directory. Use 
 
@@ -29,6 +29,8 @@ If you want to stop a very long execution of map-parallel, type ctrl-c in chez s
 (stop-thread-pool tp)
 
 After that the thread pool is ready for operations again.
+
+An idle thread pool should not consume significant resources.
 
 
 
